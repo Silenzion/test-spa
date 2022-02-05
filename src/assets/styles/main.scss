@@ -1,2 +1,16 @@
-@import "variables";
-@import "mixins";
+@import "variables.scss";
+@import "mixins.scss";
+
+body {
+  margin: 0;
+  font-family: $main-font-family;
+  box-sizing: border-box;
+  font-size: 12px;
+  padding: 80px;
+  background: $color-black-100;
+  @include media-mobile {
+    padding: 20px;
+  }
+
+}
+

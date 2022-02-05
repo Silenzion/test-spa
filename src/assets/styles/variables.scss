@@ -1,14 +1,14 @@
-$color-accent-green-100: #70D24E;
-$color-black-100 = #2C323A;
-$color-white = #FFFFFF;
-$color-grey-100 = #EBEBEB;
-$color-grey-200 = #F8F8F8;
-$color-grey-300 = #D8D8D8;
+$color-accent-green-100 : #70D24E;
+$color-black-100 : #2C323A;
+$color-white : #FFFFFF;
+$color-grey-100 : #EBEBEB;
+$color-grey-200 : #F8F8F8;
+$color-grey-300 : #D8D8D8;
 
-$box-shadow = 0px 5px 20px rgba(86, 86, 86, 0.05);
+$box-shadow : 0px 5px 20px rgba(86, 86, 86, 0.05);
+$box-shadow-dark:  0px 5px 20px rgba(86, 86, 86, 0.25);
 
-$border-radius-10 = 10px;
-$border-radius-5 = 5px;
+$border-grey-100 : 1px solid $color-grey-100;
+$border-grey-300 : 1px solid $color-grey-300;
 
-$border-grey-100 = 1px solid $color-grey-100;
-$border-grey-300 = 1px solid $color-grey-300;
+$main-font-family : "Gotham Pro", sans-serif;
