@@ -14,3 +14,46 @@ body {
 
 }
 
+.btn:focus, .btn.focus{
+  box-shadow: none ;
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border:none;
+}
+
+.btn-green {
+  background-color: $color-accent-green-100;
+  color: $color-white;
+  border-radius: 5px;
+  width: 100%;
+  &:hover {
+    color: $color-white;
+    box-shadow: $box-shadow-dark;
+  }
+}
+
+.btn-link {
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: $color-black-100;
+  border-bottom: 1px solid $color-accent-green-100;
+  border-radius: 0;
+  padding: 0;
+  &:hover{
+    color:$color-accent-green-100;
+    border-color: $color-black-100;
+  }
+}
+.form-group {
+  padding-left: 30px;
+  padding-right: 30px;
+}
