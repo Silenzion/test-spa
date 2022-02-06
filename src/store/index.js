@@ -18,9 +18,6 @@ export default new Vuex.Store({
                     const roomsIsMatches = payload.rooms.includes(item.rooms) ||
                         payload.rooms.includes('is_studio')? Boolean(item['is_studio']):false;
                     const floorIsMatches = item['floor'] >= payload['floor'][0] && item['floor'] <= payload['floor'][1];
-                    console.log(item.square >= payload.square[0] , payload.price[0]*1e6 )
-                    // eslint-disable-next-line no-debugger
-                    debugger;
                     return  roomsIsMatches && squareIsMatches && priceIsMatches && floorIsMatches;
                 });
             }
