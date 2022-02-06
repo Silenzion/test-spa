@@ -15,8 +15,8 @@ body {
   font-size: 12px;
   padding: 80px;
   background: $color-black-100;
-  @include media-mobile {
-    padding: 20px;
+  @include media-tablet {
+    padding: 30px;
   }
   @include media-mobile {
     padding: 7px;
