@@ -74,7 +74,7 @@ export default {
 
 .content {
   width: 100%;
-  max-width: 1020px;
+  max-width: 1170px;
 }
 
 .title {

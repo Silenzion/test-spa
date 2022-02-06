@@ -4,10 +4,10 @@
       <div class="flat-card-content ">
         <div class="flat-card-header">
           <span class="flat-card-floor">{{ item.floor }} этаж</span>
-          <div class="flat-card-square">{{ item.rooms }} комната - {{ item.square }} м<sup>2</sup></div>
+          <div class="flat-card-square" v-html="getStringAboutRooms(item)"></div>
         </div>
         <div class="flat-card-body">
-          <div class="flat-card-building-id"> № {{ item.building_id }}</div>
+          <div class="flat-card-building-id"> № {{ item['building_id'] }}</div>
           <img src="../assets/images/1.png" alt="Card image">
         </div>
         <div class="flat-card-footer">
@@ -33,6 +33,16 @@ export default {
   },
   components: {
     Button
+  },
+  methods: {
+    getStringAboutRooms: (item) => {
+      const declination = item.rooms === 1 ? 'комната':'комнаты';
+      return `${item.rooms} ${declination} - ${item.square} м<sup>2</sup>`;
+    },
+    getStringWithPricePerMeter: (item) => {
+      const declination = item.rooms === 1 ? 'комната':'комнаты';
+      return `${item.rooms} ${declination} - ${item.square} м<sup>2</sup>`;
+    }
   }
 }
 </script>
@@ -51,16 +61,16 @@ export default {
 }
 
 .btn {
-  height:0;
+  height: 0;
   opacity: 0;
   transition: height 0.5s ease;
 }
 
 
-.flat-card{
+.flat-card {
   padding: 15px;
 
-  &-content{
+  &-content {
     overflow: hidden;
     padding: 8px 10px 10px;
     box-shadow: $box-shadow;
@@ -70,11 +80,11 @@ export default {
     height: 365px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: stretch;
     margin: 0 auto;
   }
 
-  &-header{
+  &-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,16 +92,11 @@ export default {
     height: 40px;
   }
 
-  &-floor{
-
+  &-floor {
     color: $color-grey-300;
   }
 
-  &-square{
-
-  }
-
-  &-body{
+  &-body {
     border: $border-grey-300;
     border-radius: 5px;
     display: flex;
@@ -100,8 +105,7 @@ export default {
   }
 
   img {
-    //height: 188px;
-    //width: 230px;
+    height: 188px;
     width: 100%;
     align-self: center;
     transition: all 1s ease;
@@ -119,31 +123,34 @@ export default {
     border-radius: 0px 5px;
   }
 
-  &-footer{
+  &-footer {
     padding-top: 11px;
     text-align: right;
 
     div {
-      margin-bottom: 10px;
+      line-height: 28px;
+      //margin-bottom: 10px;
     }
   }
 
-  &-total-price{
+  &-total-price {
     font-size: 20px;
   }
 }
 
 // Hover
 
-.flat-card:hover{
+.flat-card:hover {
 
   .flat-card-content {
     box-shadow: $box-shadow-dark;
   }
-
+  .flat-card-body{
+    height: 200px;
+  }
   .btn {
-    height: auto;
-    opacity:1;
+    height: 40px;
+    opacity: 1;
     transition: all 1s ease;
   }
 

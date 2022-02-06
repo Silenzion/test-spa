@@ -24,15 +24,15 @@ body {
 
 }
 
-.btn:focus, .btn.focus{
-  box-shadow: none ;
+.btn:focus, .btn.focus {
+  box-shadow: none;
 }
 
 .btn {
   font-size: 14px;
-
   text-transform: uppercase;
-  border:none;
+  border: none;
+  font-weight: bold;
 }
 
 .btn-green {
@@ -40,6 +40,7 @@ body {
   color: $color-white;
   border-radius: 5px;
   width: 100%;
+
   &:hover {
     color: $color-white;
     box-shadow: $box-shadow-dark;
@@ -47,9 +48,7 @@ body {
 }
 
 .btn-link {
-
   font-size: 10px;
-  line-height: 28px;
   display: flex;
   align-items: center;
   text-transform: uppercase;
@@ -57,13 +56,53 @@ body {
   text-decoration: none;
   border-bottom: 1px solid $color-accent-green-100;
   border-radius: 0;
-  padding: 0;
-  &:hover{
-    color:$color-accent-green-100;
+  padding: 6px 0 3px;
+  line-height: 8px;
+
+  &:hover {
+    color: $color-accent-green-100;
     border-color: $color-black-100;
+    text-decoration: none;
+    cursor: pointer;
   }
 }
+
+.btn-checkbox {
+  background-color: $color-white;
+  color: $color-black-100;
+  border-radius: 5px !important;
+  width: 100%;
+  max-width: 48px;
+  height: 40px;
+  border: $border-grey-300;
+
+  &.active {
+    background-color: $color-accent-green-100;
+    color: $color-white;
+    border-color: transparent;
+  }
+}
+
+.btn-group > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) {
+  margin-left: 4px;
+}
+
 .form-group {
-  //padding-left: 30px;
-  padding-right: 30px;
+  margin-bottom: 0;
+}
+
+.separator {
+  font-weight: 400;
+  color: $color-grey-300;
+  font-size: 20px;
+  text-align: center;
+  width: 60px;
+}
+
+fieldset > div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  //width: 100%;
+  //max-width:235px;
 }

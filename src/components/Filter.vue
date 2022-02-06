@@ -1,7 +1,7 @@
 <template>
   <div class="filter">
     <b-form-group
-        label="Комнаты"
+        label="КОМНАТЫ"
         v-slot="{ ariaDescribedby }"
     >
       <b-form-checkbox-group
@@ -9,13 +9,15 @@
           :options="roomsOptions"
           :aria-describedby="ariaDescribedby"
           buttons
-          button-variant="green"
+          button-variant="checkbox"
       ></b-form-checkbox-group>
+      <div class="separator">|</div>
     </b-form-group>
+
     <Range v-for="(item,index) in rangesData" :key="index" :item="item"/>
-    <div class="d-flex flex-column align-items-center">
+    <div class="filter-buttons">
       <Button text="Применить" @click="onFilter"/>
-      <Button text="Сбросить" variant="link" @click="onReset"/>
+      <Button text="Сбросить фильтр" variant="link" @click="onReset"/>
     </div>
   </div>
 </template>
@@ -41,14 +43,14 @@ export default {
       ],
       rangesData: {
         floor: {
-          label: 'ЭТАЖ, м<sup>2</sup>',
+          label: 'ЭТАЖ',
           min: 1,
           max: 99,
           step: 1,
           value: [1, 99]
         },
         square: {
-          label: 'ПЛОЩАДЬ',
+          label: 'ПЛОЩАДЬ, м<sup>2</sup>',
           min: 9,
           max: 999,
           step: 1,
@@ -93,16 +95,26 @@ export default {
 .filter {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
   padding: 15px;
-  flex-shrink: 1;
-  -webkit-flex-shrink: 1;
+
+  @include media-tablet{
+    justify-content: center;
+  }
+
+  & > * {
+    width: 100%;
+    max-width:235px;
+    margin-bottom: 15px;
+  }
+
 }
 
-.btn-green-checkbox {
-  background-color: $color-accent-green-100;
-  color: $color-white;
-  border-radius: 5px;
+.filter-buttons{
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: end;
 }
 </style>
