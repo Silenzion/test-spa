@@ -4,8 +4,8 @@
       <div class="content">
         <header class="title text-center">Lorem ipsum dolor sit</header>
         <main>
-          <Filter ref="filter"></Filter>
-          <CardsRow ref="cardsRow" :items="items"></CardsRow>
+          <FilterForm ref="filter"/>
+          <CardsRow ref="cardsRow" :items="items"/>
         </main>
       </div>
     </div>
@@ -13,103 +13,55 @@
 </template>
 
 <script>
-// import api from "@/api";
+import {mapGetters} from 'vuex';
+
 import CardsRow from "@/components/CardsRow";
-import Filter from "@/components/Filter";
+import FilterForm from "@/components/Filter";
 
 export default {
   name: 'App',
   components: {
     CardsRow,
-    Filter
+    FilterForm
   },
-  data(){
+  data() {
     return {
-      items: [{
-        "building_id":73,
-        "building_name":"1 этап 1а корпуса",
-        "floor":10,
-        "id":23329,
-        "is_studio":1,
-        "number":"163",
-        "plan":"/img/bb8d/9eeb90d9c7aeeed41fb41c0b5e383013.jpg",
-        "porch":3,
-        "price":2956317,
-        "rooms":1,
-        "size":"XS",
-        "square":23.66
-      },
-        {
-          "building_id":74,
-          "building_name":"1 этап 1а корпуса",
-          "floor":4,
-          "id":20822,
-          "is_studio":1,
-          "number":"163",
-          "plan":"/img/bb8d/9eeb90d9c7aeeed41fb41c0b5e383013.jpg",
-          "porch":3,
-          "price":2992701,
-          "rooms":1,
-          "size":"XS",
-          "square":23.87
-        },
-        {
-          "building_id":73,
-          "building_name":"1 этап 1а корпуса",
-          "floor":10,
-          "id":23329,
-          "is_studio":1,
-          "number":"163",
-          "plan":"/img/bb8d/9eeb90d9c7aeeed41fb41c0b5e383013.jpg",
-          "porch":3,
-          "price":2956317,
-          "rooms":1,
-          "size":"XS",
-          "square":23.66
-        },
-        {
-          "building_id":74,
-          "building_name":"1 этап 1а корпуса",
-          "floor":4,
-          "id":20822,
-          "is_studio":1,
-          "number":"163",
-          "plan":"/img/bb8d/9eeb90d9c7aeeed41fb41c0b5e383013.jpg",
-          "porch":3,
-          "price":2992701,
-          "rooms":1,
-          "size":"XS",
-          "square":23.87
-        }
-      ],
+      items: []
     }
   },
-  created: {
-
+  computed: {
+    ...mapGetters([
+      'getAllFlats',
+      'getFlatsByFilters'
+    ])
+  },
+  created() {
+    this.$store.dispatch('getDataFromFile').then(() => this.items = this.getAllFlats);
   },
   methods: {
-    // eslint-disable-next-line no-unused-vars
-    onFilter(data){
 
+    getFilteredData(data) {
+      this.items = this.getFlatsByFilters(data);
     },
-    onReset(){
-
+    onReset() {
+      this.items = this.getAllFlats;
     },
-    getDataForCards(){
 
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.app{
+.app {
   background: $color-white;
   padding: 30px;
   border-radius: 10px;
 
-  @include media-mobile {
+  @include media-tablet {
     padding: 15px;
+  }
+  @include media-mobile {
+    padding: 0;
   }
 }
 
@@ -121,7 +73,7 @@ export default {
 }
 
 .content {
-  width:100%;
+  width: 100%;
   max-width: 1020px;
 }
 
