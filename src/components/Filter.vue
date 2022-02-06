@@ -102,6 +102,11 @@ export default {
     justify-content: center;
   }
 
+  @include media-little-tablet{
+    flex-direction: column;
+    align-items: center;
+  }
+
   & > * {
     width: 100%;
     max-width:235px;
@@ -116,5 +121,8 @@ export default {
   flex-direction: column;
   align-items: center;
   align-self: end;
+  @include media-little-tablet{
+    align-self: auto;
+  }
 }
 </style>
