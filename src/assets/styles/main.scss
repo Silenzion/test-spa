@@ -1,6 +1,12 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("~@/assets/fonts/GothamPro-Light.woff") format("woff");
+}
+
+
 body {
   margin: 0;
   font-family: $main-font-family;
@@ -23,7 +29,6 @@ body {
 
 .btn {
   font-size: 14px;
-  line-height: 28px;
   font-weight: bold;
   text-transform: uppercase;
   border:none;
