@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = window.location;
+const BASE_URL = window.location.origin;
+console.log(BASE_URL)
 const client = axios.create({
     baseURL: BASE_URL
 });
