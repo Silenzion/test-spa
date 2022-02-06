@@ -40,7 +40,7 @@ export default {
       return `${item.rooms} ${declination} - ${item.square} м<sup>2</sup>`;
     },
     getStringWithPricePerMeter: (item) => {
-      const pricePerMeter =  (Math.round(item.price / item.square)* 100).toLocaleString();
+      const pricePerMeter =  Math.round(item.price / item.square).toLocaleString();
       return `${pricePerMeter} р. за м<sup>2</sup>`;
     }
   }
