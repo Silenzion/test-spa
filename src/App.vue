@@ -4,7 +4,7 @@
       <div class="content">
         <header class="title text-center">Lorem ipsum dolor sit</header>
         <main>
-          <FilterForm ref="filter"/>
+          <FilterForm ref="filter" @onReset="onReset" @onFilter="onFilter"/>
           <CardsRow ref="cardsRow" :items="items"/>
         </main>
       </div>
@@ -39,8 +39,8 @@ export default {
     this.$store.dispatch('getDataFromFile').then(() => this.items = this.getAllFlats);
   },
   methods: {
-
-    getFilteredData(data) {
+    onFilter(data) {
+      console.log(data);
       this.items = this.getFlatsByFilters(data);
     },
     onReset() {

@@ -2,7 +2,7 @@
   <div class="cards-row">
     <div class="flat-card col-12 col-md-6 col-lg-4 col-xl-3" v-for="(item,index) in items" :key="index">
       <div class="flat-card-content ">
-        <div class="flat-card-header d-flex flex-row justify-content-between">
+        <div class="flat-card-header">
           <span class="flat-card-floor">{{ item.floor }} этаж</span>
           <div class="flat-card-square">{{ item.rooms }} комната - {{ item.square }} м<sup>2</sup></div>
         </div>
@@ -53,7 +53,7 @@ export default {
 .btn {
   height:0;
   opacity: 0;
-  transition: all 1s ease;
+  transition: height 0.5s ease;
 }
 
 
@@ -83,12 +83,12 @@ export default {
   }
 
   &-floor{
-    font-weight: bold;
+
     color: $color-grey-300;
   }
 
   &-square{
-    font-weight: bold;
+
   }
 
   &-body{
@@ -111,7 +111,7 @@ export default {
     margin-top: -1px;
     margin-right: -1px;
     text-align: right;
-    font-weight: bold;
+
     font-size: 14px;
     padding-left: 10px;
     padding-right: 10px;

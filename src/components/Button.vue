@@ -1,5 +1,5 @@
 <template>
-<button :class="`btn  btn-${variant}`">{{text}}</button>
+<button :class="`btn  btn-${variant}`" @click="$emit('click', $event)">{{text}}</button>
 </template>
 
 <script>
