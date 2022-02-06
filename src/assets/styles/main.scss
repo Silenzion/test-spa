@@ -97,12 +97,24 @@ body {
   font-size: 20px;
   text-align: center;
   width: 60px;
+
+  @include media-little-tablet{
+    display: none;
+  }
+}
+
+legend{
+  @include media-little-tablet{
+    text-align: center;
+  }
 }
 
 fieldset > div{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  //width: 100%;
-  //max-width:235px;
+
+  @include media-little-tablet{
+    justify-content: center;
+  }
 }
