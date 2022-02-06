@@ -12,7 +12,7 @@
         </div>
         <div class="flat-card-footer">
           <div class="flat-card-total-price">{{ item.price.toLocaleString() }}р.</div>
-          <div>{{ (item.price / item.square).toLocaleString() }} р. за м<sup>2</sup></div>
+          <div class="flat-card-price-per-meter" v-html="getStringWithPricePerMeter(item)"></div>
           <Button text="Подробнее" type="green"/>
         </div>
       </div>
@@ -40,8 +40,8 @@ export default {
       return `${item.rooms} ${declination} - ${item.square} м<sup>2</sup>`;
     },
     getStringWithPricePerMeter: (item) => {
-      const declination = item.rooms === 1 ? 'комната':'комнаты';
-      return `${item.rooms} ${declination} - ${item.square} м<sup>2</sup>`;
+      const pricePerMeter =  (Math.round(item.price / item.square)* 100).toLocaleString();
+      return `${pricePerMeter} р. за м<sup>2</sup>`;
     }
   }
 }
@@ -93,7 +93,7 @@ export default {
   }
 
   &-floor {
-    color: $color-grey-300;
+    color: $color-grey-400;
   }
 
   &-body {
@@ -135,6 +135,9 @@ export default {
 
   &-total-price {
     font-size: 20px;
+  }
+  &-price-per-meter{
+    color: $color-grey-400;
   }
 }
 
