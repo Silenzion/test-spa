@@ -3,11 +3,12 @@
 
 @font-face {
   font-family: "Gotham Pro";
-  src: url("~@/assets/fonts/GothamPro-Light.woff") format("woff");
+  src: url("~@/assets/fonts/GothamPro.woff") format("woff");
 }
 
 
 body {
+  font-weight: bold;
   margin: 0;
   font-family: $main-font-family;
   box-sizing: border-box;
@@ -29,7 +30,7 @@ body {
 
 .btn {
   font-size: 14px;
-  font-weight: bold;
+
   text-transform: uppercase;
   border:none;
 }
@@ -46,7 +47,7 @@ body {
 }
 
 .btn-link {
-  font-weight: bold;
+
   font-size: 10px;
   line-height: 28px;
   display: flex;
